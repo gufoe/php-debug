@@ -7,9 +7,6 @@ use SebastianBergmann\CodeCoverage\Data\RawCodeCoverageData;
 use SebastianBergmann\CodeCoverage\Filter;
 use SebastianBergmann\CodeCoverage\Driver\Selector;
 
-xdebug_start_code_coverage();
-RandomClass::method1();
-$data = xdebug_get_code_coverage();
 
 // If no coverage stored yet, create a new one
 $filter = new Filter();
@@ -20,7 +17,11 @@ $coverage = new CodeCoverage(
     $filter
 );
 
-$coverage->append(RawCodeCoverageData::fromXdebugWithoutPathCoverage($data), 'session');
+$coverage->start('xx');
+RandomClass::method1();
+$data = $coverage->stop();
+
+$coverage->append($data, 'session');
 
 
 
