@@ -1,7 +1,7 @@
 {
     "name": "jake/php-debug",
     "autoload": {},
-    "require-dev": {
-        "phpunit/php-code-coverage": "^11"
+    "require": {
+        "phpunit/php-code-coverage": "^12"
     }
 }
